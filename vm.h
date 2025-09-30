@@ -3,10 +3,11 @@
 #define STACK_MAX 256
 
 #include <stdio.h>
+
 #include "object.h"
 
-
-typedef struct{
+typedef struct Vm{
+	Object* firstObject;
 	Object* stack [STACK_MAX];
 	int stackSize;
 }Vm;

@@ -1,8 +1,10 @@
 #include <stdlib.h>
 #include "vm.h"
 
+
 Vm* newVm(){
 	Vm* new = malloc(sizeof(Vm));
+	new->firstObject = NULL;
 	new->stackSize = 0;
 	return new;
 }
@@ -26,14 +28,14 @@ Object* pop (Vm* vm)
 
 void pushInt(Vm* vm,int value)
 {
-	Object* object = newObject(OBJECT_INT);
+	Object* object = newObject(vm,OBJECT_INT);
 	object->value = value;
 	push(vm,object);
 }
 
 
 Object* pushPair(Vm* vm){
-	Object* object = newObject(OBJECT_PAIR);
+	Object* object = newObject(vm,OBJECT_PAIR);
 	object->tail = pop(vm);
 	object->head = pop(vm);
 	push(vm,object);

@@ -1,5 +1,7 @@
 #pragma once
 
+typedef struct Vm Vm;
+
 typedef enum{
   OBJECT_INT,
   OBJECT_PAIR,
@@ -7,6 +9,7 @@ typedef enum{
 
 
 typedef struct sObject{
+	struct sObject* next;
 	int isMarked;
 	ObjectType type;
 	union{
@@ -19,4 +22,4 @@ typedef struct sObject{
 	};
 }Object;
 
-Object* newObject(ObjectType type);
+Object* newObject(Vm* vm,ObjectType type);
