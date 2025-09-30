@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#define STACK_MAX 256
-
+#pragma once
 
 typedef enum{
   OBJECT_INT,
@@ -21,14 +17,3 @@ typedef struct sObject{
 		};
 	};
 }Object;
-
-
-typedef struct{
-	Object* stack [STACK_MAX];
-	int stackSize;
-}VM;
-
-int main(){
-  printf("this is the first line");  
-  return 0;
-}
