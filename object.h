@@ -7,6 +7,7 @@ typedef enum{
 
 
 typedef struct sObject{
+	int isMarked;
 	ObjectType type;
 	union{
 		int value;
@@ -17,3 +18,5 @@ typedef struct sObject{
 		};
 	};
 }Object;
+
+Object* newObject(ObjectType type);

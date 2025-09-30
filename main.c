@@ -1,32 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define STACK_MAX 256
 
 
-typedef enum{
-  OBJECT_INT,
-  OBJECT_PAIR,
-} ObjectType;
-
-
-typedef struct sObject{
-	ObjectType type;
-	union{
-		int value;
-
-		struct{
-			struct sObject* head;
-			struct sObject* tail;
-		};
-	};
-}Object;
-
-
-typedef struct{
-	Object* stack [STACK_MAX];
-	int stackSize;
-}VM;
 
 int main(){
   printf("this is the first line");  
